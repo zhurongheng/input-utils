@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>车牌键盘</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="../css/image-zoom/image-zoom.css">
+</head>
+<body>
+<!--<div id="test">
+    <div class="image-zoom">
+
+    </div>
+</div>-->
+<div>
+    <img src="" id="img" style="width:200px;height:300px;" />
+</div>
+<input type="file" id="file" />
+</body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var fileTag = document.getElementById('file');
+        fileTag.onchange = function () {
+            var file = fileTag.files[0];
+            var fileReader = new FileReader();
+            fileReader.onloadend = function () {
+                if (fileReader.readyState == fileReader.DONE) {
+                    console.log(fileReader)
+                    document.getElementById('img').setAttribute('src', fileReader.result);
+                }
+            };
+            fileReader.readAsDataURL(file);
+        };
+    };
+</script>
+<!--<script type="text/javascript" src="../js/image-zoom/image-zoom.js"></script>
+<script>
+    var instance;
+    var options = {
+        url: '../image/2017-11-07_15-04-16-092_沪D19183_98_0.jpg',
+        onInit: function (inst) {
+            console.log('init');
+            instance = inst;
+        }
+    }
+    $('#test').imageZoom().build(options);
+    console.log(instance);
+    var t=setTimeout(function(){
+        instance.setUrl('https://www.baidu.com/img/baidu_jgylogo3.gif');
+        clearTimeout(t);
+    },2000);
+</script>-->
+</html>

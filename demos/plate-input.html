@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>车牌键盘</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-<link rel="stylesheet" href="../css/plate-input/plate-input.css">
+    <meta charset="UTF-8">
+    <title>车牌键盘</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="../css/plate-input/plate-input.css">
 </head>
 <body>
-	<div class="plate-box">
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-		<div class="plate-item">
-			<input type="text" maxlength="1" value="" />
-		</div>
-	</div>
+<div id="test">
+    <div class="plate-box">
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+        <div class="plate-item" ><input  type="text" value="" /></div>
+    </div>
+</div>
+<div align="center">
+    <button id="btn_test">测试</button>
+</div>
 </body>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/plate-input/plate-input.js">
+<script type="text/javascript" src="../js/plate-input/plate-input.js"></script>
+<script>
+    var instance;
+    var options={
+        onInit:function(inst){
+            instance=inst;
+            var plate='云E3992';
+            inst.setPlatenumber(plate.split(''));
+        },
+        onFocus:function(item){
+            console.log(item);
+        }
+    }
+    $('#test').plateInput().build(options);
+    $('btn_test').click(function () {
 
+    });
 </script>
 </html>
